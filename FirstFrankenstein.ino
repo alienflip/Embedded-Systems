@@ -25,7 +25,7 @@ void loop() {
   }
   lcd.print(mins);
 
-  if(digitalRead(2) == LOW){
+  if(digitalRead(2) == LOW){ // changes the lcd display upon button down
     lcd.setCursor(10,1);
     lcd.print("Oh Yeah"); 
   }
