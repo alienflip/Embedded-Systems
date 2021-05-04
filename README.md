@@ -1,5 +1,5 @@
 # Embedded-Systems
 Fun with Arduino
 
-### firstfrankenstein.ino
-Simple test program: using input buttons, output lcd screen.
+### beats.ino
+Using a button array and speakers with the arduino to create a beatpad
