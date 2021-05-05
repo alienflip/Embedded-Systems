@@ -37,7 +37,7 @@ void loop(){
 
   // act on keydown
   for(int i = 0; i < 4; i++){
-    for(int ii = 0; ii < 3; ii++){
+    for(int ii = 0; ii < 4; ii++){
       if(customKey == hexaKeys[i][ii]){
         Serial.println(customKey);
         if(i < 4){
