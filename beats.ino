@@ -37,6 +37,9 @@ void setup(){
 // we assign key S16 -> '8' for record functionality, S15 -> 'C' for stop record, S14 -> for playback and S13 -> for delete recording
 bool record = false;
 
+// keeps track of how many beats are currently in memory for the current track: must be <= 16
+int press_count = 0;
+
 void loop(){
   // listen for keydown
   char customKey = customKeypad.getKey();
@@ -45,6 +48,7 @@ void loop(){
   for(int i = 0; i < 4; i++){
     for(int ii = 0; ii < 4; ii++){
       if(customKey == hexaKeys[i][ii]){
+        press_count++;
         Serial.println(customKey);
         switch(customKey){
           case '8':
@@ -52,6 +56,7 @@ void loop(){
             break;
           case 'C':
             record = false;
+            press_count = 0;
             break;
           case '4':
             playback();
@@ -60,6 +65,9 @@ void loop(){
             delete_recording();
             break;
         }
+        if(record == true && press_count < 16){
+          current_beat[press_count] = i + ii;
+        }
       }
     }
   }
@@ -67,14 +75,19 @@ void loop(){
 
 void sound(int pin, int tones){
   tone(pin, tones);
-  delay(32);
+  delay(16);
   noTone(pin);
 }
 
 void playback(){
-  
+  for(int i = 0; i < 16; i++){
+    sound(soun_pin_0, current_beat[i]);
+  }
 }
 
 void delete_recording(){
-  
+  press_count = 0;
+  for(int i = 0; i < 16; i++){
+    current_beat[i] = NULL;
+  }
 }
