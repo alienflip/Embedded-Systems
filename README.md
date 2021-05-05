@@ -1,6 +1,9 @@
 # Embedded-Systems
 
 ### beats.ino
+
+https://hackaday.io/project/179578-beat-pad
+
 Using a button array and speakers with the arduino to create a beatpad
 
 libraries:
