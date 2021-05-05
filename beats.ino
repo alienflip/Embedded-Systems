@@ -48,26 +48,8 @@ void loop(){
   for(int i = 0; i < 4; i++){
     for(int ii = 0; ii < 4; ii++){
       if(customKey == hexaKeys[i][ii]){
-        press_count++;
-        Serial.println(customKey);
-        switch(customKey){
-          case '8':
-            record = true;
-            break;
-          case 'C':
-            record = false;
-            press_count = 0;
-            break;
-          case '4':
-            playback();
-            break;
-          case '0':
-            delete_recording();
-            break;
-        }
-        if(record == true && press_count < 16){
-          current_beat[press_count] = i + ii;
-        }
+        sound(sound_pin_0, tones[i + ii]);
+        sound(sound_pin_1, tones[i + ii]);
       }
     }
   }
@@ -81,7 +63,8 @@ void sound(int pin, int tones){
 
 void playback(){
   for(int i = 0; i < 16; i++){
-    sound(soun_pin_0, current_beat[i]);
+    sound(sound_pin_0, current_beat[i]);
+    sound(sound_pin_1, current_beat[i]);
   }
 }
 
