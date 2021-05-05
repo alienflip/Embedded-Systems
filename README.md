@@ -7,7 +7,7 @@ libraries:
 
         https://www.arduinolibraries.info/libraries/keypad
         
-components:
+physical components:
         
         1 x Sparkfun RedBoard (Arduino) 
         1 x 16x16 button matrix with 8 male connectors
