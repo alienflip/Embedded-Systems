@@ -3,6 +3,10 @@
 ### beats.ino
 Using a button array and speakers with the arduino to create a beatpad
 
+libraries:
+
+        https://www.arduinolibraries.info/libraries/keypad
+        
 components:
         
         1 x Sparkfun RedBoard (Arduino) 
