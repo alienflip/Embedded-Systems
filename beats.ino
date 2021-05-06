@@ -27,29 +27,47 @@ Keypad customKeypad = Keypad( makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS
 // array records the current beat saved to the device: 16 bars
 char current_beat[16];
 
-void setup(){
-  Serial.begin(9600);
-  // declare sound pins as output
-  pinMode(sound_pin_0, OUTPUT);
-  pinMode(sound_pin_1, OUTPUT);
-}
-
 // we assign key S16 -> '8' for record functionality, S15 -> 'C' for stop record, S14 -> for playback and S13 -> for delete recording
 bool record = false;
 
 // keeps track of how many beats are currently in memory for the current track: must be <= 16
 int press_count = 0;
 
+void setup(){
+  Serial.begin(9600);
+  // declare sound pins as output
+  pinMode(sound_pin_0, OUTPUT);
+  pinMode(sound_pin_1, OUTPUT);
+
+  // initialise beats
+  for(int i = 0; i < 16; i++){
+    current_beat[i] = 0;
+  }
+}
+
+
 void loop(){
   // listen for keydown
   char customKey = customKeypad.getKey();
-
+  
   // act on keydown
   for(int i = 0; i < 4; i++){
     for(int ii = 0; ii < 4; ii++){
       if(customKey == hexaKeys[i][ii]){
-        sound(sound_pin_0, tones[i + ii]);
-        sound(sound_pin_1, tones[i + ii]);
+        if(customKey == 'C'){
+          record = !record;
+        }
+        else if (customKey == '8'){
+          playback();
+        }
+        else{
+          sound(sound_pin_0, tones[i + ii]);
+          sound(sound_pin_1, tones[i + ii]);
+          if(record && press_count < 17){
+            current_beat[i + ii] = i + ii;
+            press_count++;
+          }
+        }
       }
     }
   }
@@ -57,20 +75,13 @@ void loop(){
 
 void sound(int pin, int tones){
   tone(pin, tones);
-  delay(16);
+  delay(100);
   noTone(pin);
 }
 
 void playback(){
   for(int i = 0; i < 16; i++){
-    sound(sound_pin_0, current_beat[i]);
-    sound(sound_pin_1, current_beat[i]);
-  }
-}
-
-void delete_recording(){
-  press_count = 0;
-  for(int i = 0; i < 16; i++){
-    current_beat[i] = NULL;
+    sound(sound_pin_0, tones[current_beat[i]]);
+    sound(sound_pin_1, tones[current_beat[i]]);
   }
 }
