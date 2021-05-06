@@ -1,5 +1,7 @@
 #include <Keypad.h>
 
+const int max_beats = 1000;
+
 // speaker output pins
 const int sound_pin_0 = 12;
 const int sound_pin_1 = 13;
@@ -25,7 +27,7 @@ byte colPins[COLS] = {9, 8, 7, 6}; //connect to the column pinouts of the keypad
 Keypad customKeypad = Keypad( makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS); 
 
 // array records the current beat saved to the device: 16 bars
-char current_beat[16];
+char current_beat[max_beats];
 
 // we assign key S16 -> '8' for record functionality, S15 -> 'C' for stop record, S14 -> for playback and S13 -> for delete recording
 bool record = false;
@@ -40,7 +42,7 @@ void setup(){
   pinMode(sound_pin_1, OUTPUT);
 
   // initialise beats
-  for(int i = 0; i < 16; i++){
+  for(int i = 0; i < max_beats; i++){
     current_beat[i] = 0;
   }
 }
@@ -63,8 +65,8 @@ void loop(){
         else{
           sound(sound_pin_0, tones[i + ii]);
           sound(sound_pin_1, tones[i + ii]);
-          if(record && press_count < 17){
-            current_beat[i + ii] = i + ii;
+          if(record && press_count < max_beats){
+            current_beat[press_count] = i + ii;
             press_count++;
           }
         }
@@ -80,8 +82,12 @@ void sound(int pin, int tones){
 }
 
 void playback(){
-  for(int i = 0; i < 16; i++){
-    sound(sound_pin_0, tones[current_beat[i]]);
-    sound(sound_pin_1, tones[current_beat[i]]);
+  int user_beats[press_count];
+  for(int i = 0; i < press_count; i++){
+    user_beats[i] = current_beat[i];
+  }
+  for(int i = 0; i < press_count; i++){
+    sound(sound_pin_0, tones[user_beats[i]]);
+    sound(sound_pin_1, tones[user_beats[i]]);
   }
 }
