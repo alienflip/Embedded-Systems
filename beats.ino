@@ -1,5 +1,6 @@
 #include <Keypad.h>
 
+// define the max number of beats the user can create and loop
 const int max_beats = 1000;
 
 // speaker output pins
@@ -56,15 +57,19 @@ void loop(){
   for(int i = 0; i < 4; i++){
     for(int ii = 0; ii < 4; ii++){
       if(customKey == hexaKeys[i][ii]){
+        // handle record setting (top - left button: (0,0))
         if(customKey == 'C'){
           record = !record;
         }
+        // handle playback (1, 0)
         else if (customKey == '8'){
           playback();
         }
         else{
+          // plays note no matter what
           sound(sound_pin_0, tones[i + ii]);
           sound(sound_pin_1, tones[i + ii]);
+          // only records not if these conditions are met
           if(record && press_count < max_beats){
             current_beat[press_count] = i + ii;
             press_count++;
@@ -75,12 +80,14 @@ void loop(){
   }
 }
 
+// sound creation
 void sound(int pin, int tones){
   tone(pin, tones);
-  delay(100);
+  delay(200);
   noTone(pin);
 }
 
+// creates accurate playback
 void playback(){
   int user_beats[press_count];
   for(int i = 0; i < press_count; i++){
