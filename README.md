@@ -15,7 +15,7 @@ https://hackaday.io/project/179578-beat-pad
 
 Using a button array and speakers with the arduino to create a beatpad
 
-libraries:
+docs/libraries:
 
         https://www.arduinolibraries.info/libraries/keypad
         
@@ -32,7 +32,7 @@ physical components:
 
 > ### FPGA.ino
 
-libraries:
+docs/libraries:
 
         https://docs.arduino.cc/learn/programming/vidor
 
