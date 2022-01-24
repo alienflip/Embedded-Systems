@@ -30,7 +30,7 @@ physical components:
 
 libraries:
 
-        https://docs.arduino.cc/hardware/mkr-vidor-4000
+        https://docs.arduino.cc/learn/programming/vidor
 
 physical components:
 
