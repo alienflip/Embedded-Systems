@@ -9,7 +9,7 @@ A repo for the code behind the physical do-dads I a making!
 ----------
 ----------
 
-### beats.ino
+> ### beats.ino
 
 https://hackaday.io/project/179578-beat-pad
 
@@ -30,7 +30,7 @@ physical components:
         
 ----------
 
-### FPGA.ino
+> ### FPGA.ino
 
 libraries:
 
