@@ -26,3 +26,11 @@ physical components:
 
 ### FPGA.ino
 
+libraries:
+
+        https://docs.arduino.cc/hardware/mkr-vidor-4000
+
+physical components:
+
+        1 x arduino mkrvidor 4000
+                32bit ARM Cortex-M0+
