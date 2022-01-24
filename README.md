@@ -38,5 +38,4 @@ docs/libraries:
 
 physical components:
 
-        1 x arduino mkrvidor 4000
-                32bit ARM Cortex-M0+
+        1 x arduino mkrvidor 4000 (32bit ARM Cortex-M0+)
