@@ -1,6 +1,6 @@
 # Embedded-Systems
 
-A repo for the code behind the physical do-dads I a making!
+A repo for the code behind the physical do-dads I have made / am making!
 
 > beat-pad : make and record music with arduino
 
