@@ -1,5 +1,7 @@
 # Embedded-Systems
 
+A repo for the code behind the physical do-dads I a making!
+
 ----------
 ----------
 
