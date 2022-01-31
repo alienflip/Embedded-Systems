@@ -31,7 +31,7 @@ LIGHTWEIGHT BUS
 --------------
 Signal	      Direction	  Direction	  Width	Description
               Controller	Peripheral		
-ADDRESS	      O	           I	        var.	Register address, width determines
+ADDRESS       O	           I	        var.	Register address, width determines
 READ	        O	           I	        1	    Read strobe
 READ_DATA	    I	           O	        32	  Data being read
 WRITE	        O	           I	        1	    Write strobe
