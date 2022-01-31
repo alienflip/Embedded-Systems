@@ -29,7 +29,7 @@ endmodule
 /*
 LIGHTWEIGHT BUS
 --------------
-Signal        Direction    Direction  Width	Description
+Signal        Direction    Direction  Width Description
               Controller   Peripheral		
 ADDRESS       O            I          var.  Register address, width determines
 READ          O            I          1     Read strobe
