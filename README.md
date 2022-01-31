@@ -32,10 +32,12 @@ physical components:
 
 > ### FPGA.ino
 
+Using a FPGA board to impliment fundamental electronic devices, hopefully leading to a Networking card
+
 docs/libraries:
 
         https://docs.arduino.cc/learn/programming/vidor
 
 physical components:
 
-        1 x arduino mkrvidor 4000 (32bit ARM Cortex-M0+)
+        1 x arduino mkr vidor 4000 (32bit ARM Cortex-M0+)
