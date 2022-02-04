@@ -34,9 +34,7 @@ physical components:
 
 Using a FPGA board to impliment fundamental electronic devices, hopefully leading to a Networking card
 
-docs/libraries:
-
-        https://docs.arduino.cc/learn/programming/vidor
+https://docs.arduino.cc/tutorials/mkr-vidor-4000/VidorQuartusVHDL
 
 physical components:
 
