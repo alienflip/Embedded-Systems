@@ -4,8 +4,6 @@ A repo for the code behind the physical do-dads I have made / am making!
 
 > beat-pad : make and record music with arduino
 
-> FPGA : building a networking card from scratch
-
 ----------
 ----------
 
