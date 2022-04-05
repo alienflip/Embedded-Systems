@@ -28,14 +28,3 @@ physical components:
         17 x male - male wires
         1 x arduino battery pack
         
-----------
-
-> ### FPGA.ino
-
-Using a FPGA board to impliment fundamental electronic devices, hopefully leading to a Networking card
-
-https://docs.arduino.cc/tutorials/mkr-vidor-4000/VidorQuartusVHDL
-
-physical components:
-
-        1 x arduino mkr vidor 4000 (32bit ARM Cortex-M0+)
